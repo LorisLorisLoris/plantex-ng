@@ -1,0 +1,73 @@
+.face-snap-card {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  background-color: rgb(0, 0, 0);
+  // box-shadow: 0 0 0 1px #000000;
+  --aug-inlay-bg: rgb(255, 255, 255);
+  --aug-inlay-all: 1px;
+  padding: 1rem;
+  height: 50vh;
+  position: relative;
+  .type {
+    margin-left: -1px;
+    border: solid 1px black;
+    color: white;
+    padding: 0 5px;
+    width: fit-content;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: black;
+  }
+  img {
+    border: solid 1px black;
+    align-self: center;
+    object-fit: cover;
+    width: 100%;
+    max-height: 40%;
+  }
+  .location {
+    background-color: rgb(207, 255, 239);
+    padding: 2px 8px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 8px;
+    right: 20px;
+    font-size: 10px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 10px;
+    left: 35px;
+    font-size: 10px;
+  }
+}
+
+.selected {
+  color: lavender;
+  background-color: rgb(21, 21, 21);
+  --aug-inlay-bg: rgb(21, 21, 21);
+  .type {
+    border: solid 1px lavender;
+    color: rgb(21, 21, 21);
+    background-color: lavender;
+  }
+  img {
+    border: solid 1px lavender;
+  }
+  .location {
+    background: none;
+    border: 1px solid lavender;
+  }
+  button {
+    color: lavender;
+    background: none;
+    border: solid 1px lavender;
+    border-radius: 5px;
+  }
+}
+
+.hoverable:hover {
+  --aug-inlay-bg: rgb(245, 245, 245);
+}

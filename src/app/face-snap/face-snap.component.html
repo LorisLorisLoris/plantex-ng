@@ -1,0 +1,28 @@
+<div
+  data-augmented-ui="
+tr-clip-x bl-clip-y inlay
+"
+  class="face-snap-card"
+  [ngClass]="{
+    selected: buttonText === 'Nope 💔',
+    hoverable: buttonText === 'Like 👍' && isHovered
+  }"
+  (mouseenter)="isHovered = true"
+  (mouseleave)="isHovered = false"
+>
+  <span class="type">{{ faceSnap.type }}</span>
+  <!-- attribute binding-->
+  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" />
+
+  <!-- interpolation binding-->
+  <h2>{{ faceSnap.title }}</h2>
+  <p>{{ faceSnap.description }}</p>
+  <div class="footer">
+    <p>
+      <button (click)="onLike()">{{ buttonText }}</button>
+      {{ faceSnap.likes }}
+    </p>
+    <p class="date">Mise en ligne le {{ faceSnap.createdDate }}</p>
+  </div>
+  <p class="location" *ngIf="faceSnap.location">📡 {{ faceSnap.location }}</p>
+</div>
