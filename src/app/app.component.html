@@ -1,10 +1,2 @@
-<main>
-  <!-- il est possible d'ajouter des directives au components egalemment, exemple : -->
-  <!-- <app-face-snap [faceSnap]="mySnap" *ngIf="mySnap.likes > 0"></app-face-snap> -->
-
-  <!-- ngFor agit comme let Element of Array -->
-  <app-face-snap
-    *ngFor="let faceSnap of faceSnaps"
-    [faceSnap]="faceSnap"
-  ></app-face-snap>
-</main>
+<app-header></app-header>
+<app-face-snap-list></app-face-snap-list>
