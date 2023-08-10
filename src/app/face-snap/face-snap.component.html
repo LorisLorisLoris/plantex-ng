@@ -10,19 +10,22 @@ tr-clip-x bl-clip-y inlay
   (mouseenter)="isHovered = true"
   (mouseleave)="isHovered = false"
 >
-  <span class="type">{{ faceSnap.type }}</span>
+  <span class="type">{{ faceSnap.type | uppercase }}</span>
   <!-- attribute binding-->
   <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" />
 
   <!-- interpolation binding-->
   <h2>{{ faceSnap.title }}</h2>
+  <!-- <p>{{ 0.1132 | percent : "1.0-2" }}</p> ex pipe pourcentage-->
   <p>{{ faceSnap.description }}</p>
   <div class="footer">
     <p>
       <button (click)="onLike()">{{ buttonText }}</button>
       {{ faceSnap.likes }}
     </p>
-    <p class="date">Mise en ligne le {{ faceSnap.createdDate }}</p>
+    <p class="date">
+      Mis en ligne le {{ faceSnap.createdDate | date : "short" }}
+    </p>
   </div>
   <p class="location" *ngIf="faceSnap.location">📡 {{ faceSnap.location }}</p>
 </div>
