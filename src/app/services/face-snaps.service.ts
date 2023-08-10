@@ -11,6 +11,7 @@ export class faceSnapsService {
     //un service n'a pas de ngOnInit, pas instancié comme un component
     faceSnaps : FaceSnap[] = [
         {
+        id: 1,
         type: "sensitive",
         title: 'Mimosa Pudica',
         description: "Espèce modèle pour l'étude des mécanismes de perception chez les plantes.",
@@ -20,6 +21,7 @@ export class faceSnapsService {
         location: "Valdemossa"
       },
       {
+        id: 2,
         type: "sensitive",
         title: 'Codariocalyx motorius',
         description: "Fait « danser ses feuilles comme des serpents ».",
@@ -29,6 +31,7 @@ export class faceSnapsService {
         location: "Kamikochi"
       },
       {
+        id: 3,
         type: "carnivore",
         title: 'Dionaea muscipula',
         description: "Plante carnivore, sans doute la plus connue et la plus emblématique.",
@@ -38,6 +41,7 @@ export class faceSnapsService {
         location: "Cap Roig"
       },
       {
+        id: 4,
         type: "sensitive",
         title: 'Mimosa Pudica',
         description: "Espèce modèle pour l'étude des mécanismes de perception chez les plantes.",
@@ -46,5 +50,23 @@ export class faceSnapsService {
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Mimosa_pudica_Feuille.jpg/1920px-Mimosa_pudica_Feuille.jpg",
         location: "Valdemossa"
       }
-    ]   
+    ];
+
+    getAllFaceSnaps(): FaceSnap[]{
+        return this.faceSnaps;
+    }
+
+    getFaceSnapById(faceSnapId: number) : FaceSnap {
+        const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+        if (!faceSnap){
+            throw new Error('Non trouvé !');
+        }else{
+            return faceSnap; 
+        }
+    } 
+
+    likeFaceSnapById(faceSnapId: number, buttonState: 'like' | 'unlike') : void {
+        const faceSnap = this.getFaceSnapById(faceSnapId); 
+        buttonState === 'like' ? faceSnap.likes++ : faceSnap.likes--;
+    }
 }

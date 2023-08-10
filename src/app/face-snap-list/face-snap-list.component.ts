@@ -11,13 +11,12 @@ import { faceSnapsService } from '../services/face-snaps.service';
 export class FaceSnapListComponent implements OnInit {
   faceSnaps! : FaceSnap[];
 
-
   //Pour injecter un service dans un component:
   // ajouter un argument au constructor du component qui a le type du service, 
   // par exemple private userService: UserService
   constructor(private faceSnapsService: faceSnapsService){}
 
   ngOnInit() {
-    this.faceSnaps = this.faceSnapsService.faceSnaps;
+    this.faceSnaps = this.faceSnapsService.getAllFaceSnaps();
   }
 }

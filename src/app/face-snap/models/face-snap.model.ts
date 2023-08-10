@@ -11,6 +11,7 @@
 // }
 
 export class FaceSnap {
+    id!: number;
     type!: string;
     title!: string;
     description!: string;
